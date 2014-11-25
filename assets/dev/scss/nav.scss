@@ -3,12 +3,6 @@
 ///////////////////////////////////////////////////////////////////////////
 //  DESKTOP
 ///////////////////////////////////////////////////////////////////////////
-.active {
-	font-weight: 400;
-	color: $nav-text;
-}
-
-
 @include media($large-screen-up) {
 
 	nav {
@@ -42,22 +36,6 @@
 			}
 		}
 	}//nav
-
-	#nav-blur {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 60px;
-		width: 100%;
-		background-color: white;
-		-webkit-filter: blur(40px);
-	    -moz-filter: blur(40px);
-	    -o-filter: blur(40px);
-	    -ms-filter: blur(40px);
-	    filter: blur(40px);
-	    opacity: 0.4;
-	    z-index: -10;
-	}
 
 	//HIDE MOBILE NAV
 	.js-menu, .menu, .ham, .sliding-menu-button {
@@ -93,7 +71,7 @@
 	$sliding-menu-border-color: $nav-mobile;
 	$sliding-menu-background: $nav-mobile;
 	$sliding-menu-color: #fff;
-	$sliding-menu-border: 1px solid $gray;
+	$sliding-menu-border: 1px solid $dark;
 	$sliding-menu-background-hover: white;
 	$sliding-menu-color-hover: #fff;
 
@@ -177,7 +155,7 @@
 	      }
 	      
 	      &:after {
-	        display: none;
+	        transform: translateY(-8px) rotateZ(45deg);
 	      }
 	    }
 	  }

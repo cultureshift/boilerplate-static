@@ -1,15 +1,12 @@
-
-
  			<nav id="desktop-nav">
-                <a href="/"><img src="assets/app/images/culture-shift-creative-logo.svg" onerror="this.onerror=null; this.src='assets/app/images/culture-shift-creative-logo.png'" alt="Culture Shift Creative Logo"></a>
+                <a href="/"><img src="assets/app/images/logo.svg" onerror="this.onerror=null; this.src='assets/app/images/logo.png'" alt="Logo"></a>
                 <ul>
-                    <li><a href="/apps.php">apps</a></li>
-                    <li><a href="/consultancy.php">consultancy</a></li>
-                    <li><a href="/outreach.php">outreach</a></li>
-                    <li><a href="/jobs.php">jobs</a></li>
-                    <li><a href="/about.php">about</a></li>
-                    <li><a href="/contact.php">contact</a></li>
-                    <!-- <li><a href="/publication.php">publication</a></li> -->
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Link 5</a></li>
+                    <li><a href="#">Link 6</a></li>
                 </ul>
            </nav>
            <div id="nav-blur">
@@ -19,14 +16,12 @@
             </a>
             <nav class="js-menu sliding-menu-content">
               <ul>
-                <li><a href="/apps.php">apps</a></li>
-                <li><a href="/consultancy.php">consultancy</a></li>
-                <li><a href="/outreach.php">outreach</a></li>
-                <li><a href="/jobs.php">jobs</a></li>
-                <li><a href="/about.php">about</a></li>
-                <li><a href="/contact.php">contact</a></li>
-                <li><a href="/privacy.php">privacy policy</a></li>
-                <!-- <li><a href="/publication.php">publication</a></li> -->
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                  <li><a href="#">Link 5</a></li>
+                  <li><a href="#">Link 6</a></li>
               </ul>
             </nav>
             <div class="js-menu-screen menu-screen"></div>
