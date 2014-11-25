@@ -1,0 +1,1210 @@
+///////////////////////////////////////////////////////////////////////////
+//  RESET
+///////////////////////////////////////////////////////////////////////////
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.omega {
+	@include omega(0);
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  SECTIONS
+///////////////////////////////////////////////////////////////////////////
+.section {
+	@include outer-container;
+}
+
+.section-video {
+	@include outer-container;
+
+	margin-bottom: 5em;
+
+	h2 {
+		margin-bottom: 1em;
+	}
+}
+
+.section-white-text {
+	padding: 2em;
+	text-align: center;
+	background-color: white;
+}
+
+.section-blue {
+	padding: 2em;
+	text-align: center;
+	background-color: $collectiv;
+	color: white;
+}
+
+.section-full-screen {
+	
+	@include media($medium-screen-up) {
+		height: 100vh;
+		width: 100vw;
+
+		h1 {
+			margin-top: 12%;	
+		}
+	}
+}
+
+.outer-container {
+	@include outer-container;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  COLUMNS
+///////////////////////////////////////////////////////////////////////////
+@mixin side-by-side() {
+	display: inline-block;
+	float: left;
+	padding: 0 1em;
+}
+
+@mixin col($col: 2) {
+	@include span-columns($col of 16);
+}
+
+.col-2 {
+	@include col(8);
+	@include clearfix;
+  	position: relative;
+}
+
+.col-2-stack {
+	@include col(8);
+	@include clearfix;
+  	position: relative;
+
+  	@include media($large-screen-down) {
+		@include fill-parent;
+	}
+
+}
+
+.col-3 {
+	@include col(5.3);
+
+	@include media($medium-screen-down) {
+		@include span-columns(12);
+
+	}
+
+}
+
+
+.col-3-stack {
+	@include col(5.3);
+
+	@include media($large-screen-down) {
+		@include fill-parent;
+		margin: 2em 0;
+
+	}
+
+}
+
+.col-4 {
+	@include col(4);
+}
+
+.float-left {
+	float: left;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  FOOTER
+///////////////////////////////////////////////////////////////////////////
+footer {
+	clear: both;
+	position: relative;
+	background-color: $dark;
+	width: 100%;
+	height: 10em;
+
+	a {
+		color: white;
+		position: absolute;
+		bottom: 60px;
+		left: 50px;
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	img {
+		position: absolute;
+		bottom: 50px;
+		right: 50px;
+		width: 200px;
+		padding-top: 6em;
+
+		@include media($small-screen-down) {
+			
+
+		}
+	}
+
+	@include media($small-screen-down) {
+			height: 10em;
+
+			a {
+				display: none;
+			}
+			
+			img {
+				@include span-columns(12);
+			}
+		}
+
+
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  SPAN COLUMNS FOR HTML
+///////////////////////////////////////////////////////////////////////////
+.row {
+	@include row();
+}
+
+.up-row {
+
+}
+
+.w1 {
+	@include span-columns(1 of 16);
+}
+.w2 {
+	@include span-columns(2 of 16);
+}
+.w3 {
+	@include span-columns(3 of 16);
+}
+.w4 {
+	@include span-columns(4 of 16);
+
+	@include media($large-screen-down) {
+		@include span-columns(14 of 16);
+		@include shift(1);
+	}
+}
+.w5 {
+	@include span-columns(5 of 16);
+}
+.w5-full {
+	@include span-columns(5.3333 of 16);
+
+	@include media($large-screen-down) {
+		@include span-columns(14 of 16);
+		@include shift(1);
+	}
+}
+.w6-force {
+	@include span-columns(5.7 of 16);
+}
+.w6 {
+	@include span-columns(6 of 16);
+
+	@include media($large-screen-down) {
+		@include span-columns(14 of 16);
+		@include shift(1);
+	}
+}
+.w7 {
+	@include span-columns(7 of 16);
+}
+.w8 {
+	@include span-columns(8 of 16);
+
+	@include media($large-screen-down) {
+		@include span-columns(14 of 16);
+		@include shift(1);
+	}
+}
+.w9 {
+	@include span-columns(9 of 16);
+}
+.w10 {
+	@include span-columns(10 of 16);
+}
+.w11 {
+	@include span-columns(11 of 16);
+}
+.w12 {
+	@include span-columns(12 of 16);
+
+	@include media($large-screen-down) {
+		@include span-columns(14 of 16);
+		@include shift(1);
+	}
+}
+.w13 {
+	@include span-columns(13 of 16);
+}
+.w14 {
+	@include span-columns(14 of 16);
+}
+.w15 {
+	@include span-columns(15 of 16);
+}
+.w16 {
+	@include span-columns(16 of 16);
+}
+
+
+.s1 {
+	@include shift(1);
+}
+.s2 {
+	@include shift(2);
+}
+.s3 {
+	@include shift(3);
+}
+.s4 {
+	@include shift(4);
+}
+.s5 {
+	@include shift(5);
+}
+.s6 {
+	@include shift(6);
+}
+.s7 {
+	@include shift(7);
+}
+.s8 {
+	@include shift(8);
+}
+
+.text-left {
+	text-align: left;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  BGS INSET
+///////////////////////////////////////////////////////////////////////////
+
+.inset-bg {
+	z-index:-3000;
+    // position: fixed;
+    bottom: 0;
+    left: 0;
+    min-height: 500px;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+#blood-bricks {
+	background-image: url('../../../assets/app/images/outreach/outreach-bg-1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+
+	img {
+		margin-top: 6em;
+		min-width: 14em;
+	}
+
+	@include media($small-screen-down) {
+		margin-top: 25em;
+	}
+
+}
+
+#hyderabad {
+	background-image: url('../../../assets/app/images/outreach/outreach-bg-2.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+
+	img {
+		margin-top: 6em;
+		min-width: 14em;
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+//  LANDING PAGE
+///////////////////////////////////////////////////////////////////////////
+#hero {
+	height:100vh;
+	width: 100%;
+	position: relative;
+	background-color: white;
+
+	h1 {
+	
+		margin-top: 12%;	
+		color: $dark;
+		text-align: center;
+		padding-bottom: 16px;
+	}
+	p {
+		
+		text-align: center;
+		padding-bottom: 6em;
+		color: $dark;
+		font-size: 1.2em;
+	}
+}//#hero
+
+
+video {
+	z-index:-3000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-height: 640px;
+    min-width: 100%;
+    overflow: hidden;
+
+    @include media($large-screen-down) {
+    	display: none;
+    }
+
+}
+
+.hero-landing-action {
+	
+	@include media($medium-screen-up) {
+		@include col(2);
+		@include side-by-side();
+	}
+	
+}
+
+#landing-works {
+	background-color: white;
+	padding: 3em 0;
+	width: 100%;
+	padding-bottom: 15em;
+
+	h2:first-child {
+		padding-bottom: 4em;
+	}
+	h2:not(:first-child) {
+		padding: 4em 0;
+	}
+	img {
+		width: 24.4%;
+		border-radius: 1px;
+		-webkit-border-radius: 1px;
+		transition: all 1s ease-in-out;
+	}
+	.works-action {
+		display: inline-block;
+		width: 24.4%;
+		text-align: center;
+		color: $dark;
+		border-radius: 1px;
+		-webkit-border-radius: 1px;
+		transition: all 1s ease-in-out;
+	}
+
+
+	@include media($small-screen-down) {
+		padding-top: 5em;
+		padding-bottom: 15em;
+
+		img {
+			@include fill-parent;
+			margin: 0 auto;
+		}
+	}
+
+}
+
+#landing-originality {
+	height: 30em;
+	width: 100%;
+	//background-image: url('../../../assets/app/images/mountain-fog-morning-coffee.jpg');
+
+	 @include media($large-screen-up) {
+	 	h2 {
+			
+			@include outer-container;
+		}
+		p {			
+			@include span-columns(8);
+			@include shift(4);
+		}
+    }
+
+     @include media($large-screen-down) {
+	  	background-image: url('../images/mountain-fog-morning-coffee.jpg');
+    	height: 55em;
+	 }
+   		
+    	h2 {
+    		padding: 2.5em 1em 0 1em;
+			color: white;
+    	}
+    	p {
+    		@include span-columns(12);
+    		@include shift(2);
+    		color: white;
+    		font-size: 1.2em;
+    		text-align: center;
+    		margin-top: 1.8em;
+
+    	}
+	
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	background-color: transparentize($dark, 0.7);
+
+	
+}
+
+#landing-outreach {
+
+	height: 30em;
+	width: 100%;
+	//background-image: url('../../../assets/app/images/mountain-fog-morning-coffee.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+
+	h2 {
+		padding-top: 7%;
+		color: white;
+		@include outer-container;
+	}
+	p {
+		text-align: center;
+		color: white;
+		@include span-columns(8);
+		@include shift(4);
+		margin-top: 4em;
+	}
+}
+
+
+.social-bar {
+	
+	@include media($small-screen-down) {
+		svg {
+			display: inline-block;
+			width: 75px !important;
+			height: 75px !important;
+		}
+	}
+}
+
+
+////APPS SECTION
+
+$device-padding-vertical: 5em;
+$device-padding-horizontal: .4em;
+$device-screen-width: 14em;
+$device-screen-height: 25em;
+$device-background: darken(gray, 40);
+$device-backside-background: darken($device-background, 10);
+$device-text-color: white;
+
+$device-background-top: #162C4C; 
+$device-background-bottom: #0A120D;
+$gradient-angle: 10deg;
+$device-screen-image: '../images/Collectiv.jpg';
+
+.device-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 20em;
+  @include shift(-3);
+}
+
+.device-text {
+  color: $dark;
+  padding: 2em;
+
+  @include media($large-screen) {
+    max-width: 50%;
+    padding: 4em;
+    float: left;
+  }
+
+
+}
+
+.device {
+  display: none;
+  position: relative;
+
+  @include media($small-screen-up) {
+    @include transform(
+      perspective(800px) 
+      translateX(0px) 
+      translateY(-100px) 
+      translateZ(50px) 
+      rotateX(0deg) 
+      rotateY(-20deg) 
+      rotateZ(-0deg));
+    display: block;
+    float: right;
+    margin-bottom: -12em;
+    margin-right: 5em;
+    padding: $device-padding-vertical 0;
+    width: $device-screen-width + (2 * $device-padding-horizontal);
+    border-radius: 2em;
+    background: $device-background;
+    box-shadow: 
+      1px 0px lighten($device-backside-background, 20), 
+      4px 0px lighten($device-backside-background, 2),
+      7px 0px $device-backside-background,
+      10px 0px $device-backside-background,
+      13px 0px $device-backside-background;
+      z-index: 99999;
+
+    .screen {
+      @include size($device-screen-width $device-screen-height);
+      background-image: url($device-screen-image);
+      background-size: cover;
+      box-shadow: inset 0 1px 1px transparentize(black, .5);
+      margin: auto;
+      border-radius: .2em;
+    }
+  }
+
+  @include media($small-screen-down) {
+
+  	margin-top: 6em;
+
+    @include transform(
+      perspective(800px) 
+      translateX(0px) 
+      translateY(-100px) 
+      translateZ(50px) 
+      rotateX(0deg) 
+      rotateY(-20deg) 
+      rotateZ(-0deg));
+    display: block;
+    float: right;
+    margin-bottom: -12em;
+    margin-right: 0em;
+    padding: $device-padding-vertical 0;
+    width: $device-screen-width + (2 * $device-padding-horizontal);
+    border-radius: 2em;
+    background: $device-background;
+    box-shadow: 
+      1px 0px lighten($device-backside-background, 20), 
+      4px 0px lighten($device-backside-background, 2),
+      7px 0px $device-backside-background,
+      10px 0px $device-backside-background,
+      13px 0px $device-backside-background;
+      z-index: 99999;
+
+    .screen {
+      @include size($device-screen-width $device-screen-height);
+      background-image: url($device-screen-image);
+      background-size: cover;
+      box-shadow: inset 0 1px 1px transparentize(black, .5);
+      margin: auto;
+      border-radius: .2em;
+    }
+  }
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////////////////
+.video-player {
+	margin: 10vh 0;
+}
+
+#gallery {
+
+	#active-image {
+		
+		@include media($medium-screen-up) {
+			@include span-columns(10 of 16);
+			margin: 0 auto;
+			padding-bottom: 5em;
+			@include shift(0.5);
+			
+			img {
+				border-radius: 3px;
+				-webkit-border-radius: 3px;
+				transition: all 1s ease-in-out;
+			}
+		}//Medium Screen
+
+		@include media($medium-screen-down) {
+			img {
+				display: none;
+			}
+		}//Small Screen
+		
+	}
+
+	.thumbnail-row {
+		
+		@include media($medium-screen-up) {
+			@include fill-parent;
+			
+			img {
+				border-radius: 3px;
+				-webkit-border-radius: 3px;
+				transition: all 1s ease-in-out;
+			}
+		}//Medium Screen
+	}
+
+	.thumbnail {
+
+		@include media($medium-screen-up) {
+			@include span-columns(2.5);
+			margin: 0 0.4em 0.4em 0.4em;
+			cursor: pointer;
+			@include omega();
+		}//Medium Screen
+		
+	}
+
+	.active-thumb {
+		opacity: 0.3;
+
+		@include media($medium-screen-down) {
+			opacity: 1;
+		}
+	}
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// GRID
+///////////////////////////////////////////////////////////////////////////
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items-lines {
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, .8); 
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: $base-font-color;
+  $grid-item-height: 14em;
+
+  @include clearfix;
+  position: relative;
+  	
+  
+
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    height: $grid-item-height;
+    background: $grid-item-background;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding: 2em;
+    border-right: $grid-item-border;
+    border-bottom: $grid-item-border;
+    cursor: pointer;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    &:hover {
+      background: transparentize($grid-item-color, .95);
+    }
+
+  }
+
+  .grid-item img {
+      display: block;
+      height: 2.5em;
+      margin-bottom: 1.2em;
+      opacity: 0.7;
+    }
+
+  .grid-item h2 {
+      color: $grid-item-color;
+      font-size: 1.3em;
+      margin-bottom: .4em;
+    }
+
+  .grid-item p {
+      color: transparentize($grid-item-color, .4);
+      @include media($medium-screen) {
+        max-width: 70%;
+      }
+    }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }  
+    }
+  }
+
+  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    background: $grid-items-background;
+  }
+
+  .right-cover {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 4px;
+    background: $grid-items-background;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+// BROWSER
+///////////////////////////////////////////////////////////////////////////
+$browser-top-bar-height: 1.5em;
+$browser-circle-size: .5em; 
+$browser-circle-margin: ($browser-top-bar-height - $browser-circle-size) / 2;
+$browser-top-bar-background: lighten(#DFDFDF, 5);
+$browser-border: 0px;
+$browser-background: $base-background-color;
+$browser-content-background-1: #F0F0F0;
+$browser-content-background-2: $base-background-color;
+$browser-content-background-3: #F0F0F0;
+
+.browsers {
+  display:inline-block;
+  padding-top: 0;
+  text-align:center;
+  width:100%;
+
+  @include media($large-screen) {
+    padding-top: 2em;
+  }
+}
+
+.browser-top-bar {
+  @include linear-gradient($browser-top-bar-background, darken($browser-top-bar-background, 2));
+  border-top-left-radius: $base-border-radius;
+  border-top-right-radius: $base-border-radius;
+  border: $browser-border;
+  box-shadow: inset 0 1px 0 transparentize(white, .6);
+  height: $browser-top-bar-height;
+  width: 100%;
+}
+
+.browser-circle {
+  border-radius: $browser-circle-size * 2;
+  box-shadow: 0 1px 0px transparentize(white, .5), inset 0 1px 1px transparentize(black, 0.8);
+  display: inline-block;
+  @include size($browser-circle-size);
+  margin: $browser-circle-margin 0;
+}
+
+.browser-circle:nth-child(1) {
+  background: #FF6F55;
+  margin-left: $browser-circle-margin;
+}
+
+.browser-circle:nth-child(2) {
+  background: #F5B01D;
+  margin-left: $browser-circle-margin / 3;
+}
+
+.browser-circle:nth-child(3) {
+  background: #51B151;
+  margin-left: $browser-circle-margin / 3;
+}
+
+//////////////////////////////////////////////
+
+.browser {
+  border-bottom: none;
+  border-top-left-radius: $base-border-radius;
+  border-top-right-radius: $base-border-radius;
+  box-shadow: 0 3px 5px transparentize(black, .7);
+  display: inline-block;    
+  text-align: left;
+  width:20%;
+}
+
+.browser:nth-child(1) {
+  background-color: $browser-content-background-1;
+  display: none;
+
+  @include media($large-screen) {
+    display: inline-block;    
+  }
+
+  .browser-content {
+    background: url(../images/works/digital-17850-von-karman.jpg);
+    background-color: $browser-content-background-1;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.browser:nth-child(2) {
+  @include transform(scale(1));
+  background-color: $browser-content-background-2; 
+  width: 90%;
+  
+  @include media($large-screen) {
+    @include transform(scale(1.2));
+    width: 40%;
+  }
+
+  .browser-content {
+    background: url(../images/consultancy/browser-gdbiosciences.jpg);
+    background-color: $browser-content-background-2; 
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.browser:nth-child(3) {
+  background-color: $browser-content-background-3; 
+  display: none;
+   
+  @include media($large-screen) {
+    display: inline-block;    
+  }
+
+  .browser-content {
+    background: url(../images/works/digital-lintelus.jpg);
+    background-color: $browser-content-background-3; 
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.browser-content {
+  border-left: $browser-border;
+  border-right: $browser-border;
+  height: 17em;
+  overflow: hidden;
+
+  @include media($large-screen) {
+    height: 18em;
+  }
+}
+
+//////////////////////////////////////////////
+
+.cover {
+  background: $base-background-color;
+  border-top: 1px solid #E6E6E6;
+  height: 3.2em;
+  margin-top: -1em;
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+// SERVICES
+///////////////////////////////////////////////////////////////////////////
+.services {
+	
+
+	@include media($medium-screen-up) {
+		.col-3-responsive {
+			@include span-columns(5.3);
+		}
+
+		.col-3-responsive:last-child{
+			margin-bottom: 6em;
+		}
+	}
+	
+	h3 {
+		margin: 1em;
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+// JOBS
+///////////////////////////////////////////////////////////////////////////
+
+.comment {
+  $base-spacing: 3em;
+  $comment-gutter: 1.4em;
+  $comment-image-padding: .7em;
+  $comment-image-width: 4em;
+  $comment-color: $base-font-color;
+  $comment-background: transparent;
+  $comment-detail-color: transparentize($comment-color, .5);
+  $comment-image-vert-alignment: top;
+
+  display: table;
+  width: 100%;
+  margin-bottom: $base-spacing;
+  padding-bottom: 1em;
+  border-bottom: 1px solid transparentize($comment-color, .9);
+
+  .comment-image,
+  .comment-content {
+    display: table-cell;
+    vertical-align: $comment-image-vert-alignment;
+  }
+
+  .comment-image {
+    padding-right: $comment-gutter;
+
+    > img {
+      width: $comment-image-width;
+      height: auto;
+      border-radius: $base-border-radius;
+      padding: $comment-image-padding;
+      background: $comment-background;
+      display: block;
+      max-width: none;
+      margin-top: 3em;
+    }
+
+    .comment-reverse-order & {
+      padding-right: 0;
+      padding-left: 10px;
+    }
+  }
+
+  .comment-content {
+    width: 100%;
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: .5em;
+      text-align: left;
+    }
+
+    p {
+      margin-bottom: .5em;
+    }
+
+    p.comment-detail {
+      font-style: italic;
+      font-size: .9em;
+      color: $comment-detail-color;
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  OVERLAY
+///////////////////////////////////////////////////////////////////////////
+
+.hidden {
+	transition: all 1s ease-in-out;
+	display: none;
+}
+
+.overlay {
+	position: relative;
+	z-index: 2000;
+	@include outer-container;
+	margin-bottom: 5em;
+	transition: all 1s ease-in-out;
+}
+
+.icon-center {
+	display: block;
+	width: 3em;
+	margin: 2em auto;
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+//  FORMS
+///////////////////////////////////////////////////////////////////////////
+
+
+////LEAD GEN
+html *:focus {
+	outline: none !important;
+	border-color: inherit;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: 1px solid $dark;
+	transition: all 1s ease-in-out;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.form-lead {
+	@include outer-container;
+
+	
+	@include media($large-screen-down) {
+		@include shift(1);
+
+		p {
+		display: inline-block;
+		}
+
+		input {
+			@include span-columns(14);
+			padding: 1em;
+			margin-bottom: 1em;
+			&:focus {
+					outline: 1px solid $dark;
+			}
+		}
+
+		h3 {
+			margin-bottom: 1em;
+		}
+
+		input[type="submit"] {
+				background-color: $dark;
+				height: 3.4em;
+		}
+	}
+	@include media($large-screen-up) {
+		p {
+			display: inline-block;
+		}
+
+		input {
+			display: inline-block;
+			@include span-columns(4);
+			padding: 1em;
+			margin-right: 0.5em !important;
+			
+			&:focus {
+				outline: 1px solid $dark;
+			}
+		}
+
+		h3 {
+			margin-bottom: 1em;
+		}
+
+		input[type="submit"] {
+				background-color: $dark;
+				height: 3.4em;
+		}
+	}
+}
+
+#feedback {
+	margin-top: 1em;
+	@include fill-parent;
+	text-align: center;
+	color: green;
+	font-weight: 200;
+	font-size: 1.3em;
+
+	@include media($small-screen-down) {
+		padding: 0 1em;
+		font-size: 1em;
+	}
+
+}
+
+
+.error {
+	@include fill-parent;
+	text-align: center;
+	color: red;
+	font-weight: 200;
+	font-size: 1.3em;
+
+	@include media($small-screen-down) {
+		padding: 0 1em;
+		font-size: 1em;
+	}
+}
+
+
+//FORM ADVISE
+
+.form-advise-inputs {
+	@include outer-container;
+
+	input {
+		display: inline-block;
+		@include fill-parent;
+		padding: 1em;
+		margin-bottom: 1em;
+		margin-right: 0.5em !important;
+		background: transparent;
+		outline: 1px solid $dark;
+
+		
+		&:focus {
+			outline: 1px solid $dark;
+		}
+	}
+
+	select {
+		outline: 1px solid $dark;
+		padding: 1em;
+		background: transparent;
+		border: none;
+		@include fill-parent;
+		margin-top: 4em;
+	}
+
+	input[type="submit"] {
+			background-color: $dark;
+			height: 3.4em;
+	}
+}
+
+
+
+////GENERAL
+
+input[type="checkbox"] {
+	display: inline-block;
+}
+
+label {
+	display: inline-block;
+}
+
+
+select {
+	outline: 1px solid $dark;
+	padding: 1em;
+}
+
+
+input {
+	-webkit-box-shadow: transparent;
+       -moz-box-shadow: transparent;
+            box-shadow: transparent;
+}

@@ -1,0 +1,216 @@
+
+
+///////////////////////////////////////////////////////////////////////////
+//  DESKTOP
+///////////////////////////////////////////////////////////////////////////
+.active {
+	font-weight: 400;
+	color: $nav-text;
+}
+
+
+@include media($large-screen-up) {
+
+	nav {
+
+		padding: 1em 4em 0.3em 4em;
+		background-color: $nav-white;
+
+		img {
+			width: 11em;
+		}
+		ul {
+			display: inline-block;
+			float: right;
+			padding-top: 0.4em;
+			
+			li {
+				display: inline-block;
+				padding-right: 1em;
+				font-size: 1.2em;
+				height: 1.2em;
+
+				a {
+					color: $nav-text;
+					font-family: $lato;
+					font-weight: 300;
+
+					&:hover {
+						color: $nav-text;
+					}
+				}
+			}
+		}
+	}//nav
+
+	#nav-blur {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 60px;
+		width: 100%;
+		background-color: white;
+		-webkit-filter: blur(40px);
+	    -moz-filter: blur(40px);
+	    -o-filter: blur(40px);
+	    -ms-filter: blur(40px);
+	    filter: blur(40px);
+	    opacity: 0.4;
+	    z-index: -10;
+	}
+
+	//HIDE MOBILE NAV
+	.js-menu, .menu, .ham, .sliding-menu-button {
+		display: none;
+	}
+
+}//$large-screen-up
+
+///////////////////////////////////////////////////////////////////////////
+//  MOBILE
+///////////////////////////////////////////////////////////////////////////
+
+@include media($large-screen-down) {
+	nav {
+		padding: 0.4em 1em 0.4em 1em;
+		background-color: $nav-white;
+	}
+	//SHOF MOBILE NAV
+	.js-menu {
+		display: inline-block;
+	}
+
+	#desktop-nav {
+		img {
+			width: 12em;
+			margin-top: 0.7em;
+		}
+		ul {
+			display: none;
+		}
+	}
+
+	$sliding-menu-border-color: $nav-mobile;
+	$sliding-menu-background: $nav-mobile;
+	$sliding-menu-color: #fff;
+	$sliding-menu-border: 1px solid $gray;
+	$sliding-menu-background-hover: white;
+	$sliding-menu-color-hover: #fff;
+
+	.sliding-menu-content {
+	  @include position(fixed, 0px auto 0px 0px);
+	  @include size(220px 100%);
+	  @include transform(translateX(-220px));
+	  @include transition(all .25s linear);
+	  background: $sliding-menu-background;
+	  z-index: 999999;
+	  overflow-y: scroll;
+	  -webkit-overflow-scrolling: touch;
+
+	  li a {
+	    border-bottom: $sliding-menu-border;
+	    color: $sliding-menu-color;
+	    display: block;
+	    font-weight: bold;
+	    padding: 1em;
+	    font-weight: 300;
+	    font-family: $lato;
+
+	    &:hover {
+	      background-color: $sliding-menu-background-hover;
+	      color: $dark;
+	    }
+	  }
+
+	  &.is-visible {
+	    @include transform(translateX(0));
+	  }
+	}
+
+	.menu-screen {
+	  @include position(fixed, 0px 0px 0px 0px);
+	  @include transition;
+	  background: $sliding-menu-border-color;
+	  opacity: 0;
+	  visibility: hidden;
+	  z-index: 999998;
+
+	  &.is-visible {
+	    opacity: .4;
+	    visibility: visible;
+	  }
+	}
+
+	// Based on code by Diego Eis
+
+
+
+	$ham-width: 25px;
+	$ham-height: 1px;
+	$menu-size: 40px;
+
+	.menu {
+	  width: $menu-size;
+	  height: $menu-size;
+	  text-align: center;
+	  display: inline-block;
+	  transition: all ease 0.3s;
+	  position: fixed;
+	  top: 11px;
+	  right: 1em;
+	  z-index: 999999;
+
+	  &:hover {
+	    animation: none;
+	    
+	  }
+	  
+	  &.close {
+	    animation: none;
+	 
+
+	    .ham {
+	       background-color: transparent;
+	      
+	      &:before {
+	        transform: translateY(8px) rotateZ(-45deg);
+	      }
+	      
+	      &:after {
+	        display: none;
+	      }
+	    }
+	  }
+	}
+
+	.ham {
+	  display: inline-block;
+	  width: $ham-width;
+	  height: $ham-height;
+	  background: #000;
+	  position: relative;
+	  transition: all ease 0.3s;
+	  top: 4px;
+	  vertical-align: bottom;
+
+	  &:before,
+	  &:after {
+	    position: absolute;
+	    content: '';
+	    display: inline-block;
+	    width: $ham-width;
+	    height: $ham-height;
+	    background: #000;
+	    transition: all ease 0.3s;
+	    left: 0;
+	  }
+	  
+	  &:before {
+	    top: -8px;
+	  }
+
+	  &:after {
+	    top: 8px;
+	  } 
+	}
+}
