@@ -1,103 +1,75 @@
-// npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-clean gulp-concat gulp-notify gulp-cache gulp-livereload tiny-lr --save-dev
+var elixir = require('laravel-elixir');
 
-// Load plugins 
-var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    lr = require('tiny-lr'),
-    server = lr();
+elixir(function(mix) {
+    mix
+        // Copy webfont files from /vendor directories to /public directory.
+        .copy('vendor/fortawesome/font-awesome/fonts', 'public/fonts')
+        .copy('vendor/twbs/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts')
+        .copy('vendor/twbs/bootstrap/dist/js/bootstrap.min.js', 'public/js/vendor')
 
-// Htm
-gulp.task('htm', function() {
-  return gulp.src('*.htm' )
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Htm task complete' }));
+        .sass([ // Process front-end stylesheets
+                'frontend/main.scss'
+            ], 'resources/assets/css/frontend/main.css')
+        .styles([  // Combine pre-processed CSS files
+                'frontend/main.css'
+            ], 'public/css/frontend.css')
+        .scripts([ // Combine front-end scripts
+                'plugins.js',
+                'frontend/main.js'
+            ], 'public/js/frontend.js')
+
+        .sass([ // Process back-end stylesheets
+            'backend/main.scss',
+            'backend/skin.scss'
+        ], 'resources/assets/css/backend/main.css')
+        .styles([ // Combine pre-processed CSS files
+                'bootstrap.css',
+                'font-awesome.css',
+                'backend/main.css'
+            ], 'public/css/backend.css')
+        .scripts([ // Combine back-end scripts
+                'plugins.js',
+                'backend/main.js'
+            ], 'public/js/backend.js')
+
+        // Apply version control
+        .version(["public/css/frontend.css", "public/js/frontend.js", "public/css/backend.css", "public/js/backend.js"]);
 });
 
+/**
+ * Uncomment for LESS version
+ */
+/*elixir(function(mix) {
+    mix
+        // Copy webfont files from /vendor directories to /public directory.
+        .copy('vendor/fortawesome/font-awesome/fonts', 'public/fonts')
+        .copy('vendor/twbs/bootstrap/fonts', 'public/fonts')
+        .copy('vendor/twbs/bootstrap/dist/js/bootstrap.min.js', 'public/js/vendor')
 
-// PHP
-gulp.task('php', function() {
-  return gulp.src('*.php' )
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'php task complete' }));
-});
+        .less([ // Process front-end stylesheets
+            'frontend/main.less'
+        ], 'resources/assets/css/frontend/main.css')
+        .styles([  // Combine pre-processed CSS files
+            'frontend/main.css'
+        ], 'public/css/frontend.css')
+        .scripts([ // Combine front-end scripts
+            'plugins.js',
+            'frontend/main.js'
+        ], 'public/js/frontend.js')
 
-// Styles
-gulp.task('styles', function() {
-  return gulp.src('assets/dev/scss/main.scss')
-    .pipe(sass({ style: 'expanded', }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))    
-    .pipe(rename({ suffix: '.min' }))
-    //.pipe(minifycss())
-    .pipe(gulp.dest('assets/app/css'))
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Styles task complete' }));
-});
+        .less([ // Process back-end stylesheets
+            'backend/AdminLTE.less'
+        ], 'resources/assets/css/backend/main.css')
+        .styles([ // Combine pre-processed CSS files
+            'bootstrap.css',
+            'font-awesome.css',
+            'backend/main.css'
+        ], 'public/css/backend.css')
+        .scripts([ // Combine back-end scripts
+            'plugins.js',
+            'backend/main.js'
+        ], 'public/js/backend.js')
 
-// Scripts
-gulp.task('scripts', function() {
-  return gulp.src(['assets/dev/js/*.js'])
-    .pipe(concat('main.min.js'))
-    //.pipe(uglify())
-    .pipe(livereload(server))
-    .pipe(gulp.dest('assets/app/js'))
-    //.pipe(gulp.task('minify-js'))
-    .pipe(notify({ message: 'Scripts task complete' }));
-});
-
-// Images
-gulp.task('images', function() {
-  return gulp.src('assets/dev/images/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('assets/app/images'))
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Images task complete' }));
-});
-
-// Clean
-gulp.task('clean', function() {
-  return gulp.src(['assets/app/css', 'assets/app/js', 'assets/app/images'], {read: false})
-    .pipe(clean());
-});
-
-// Default task
-gulp.task('default', ['clean'], function() {
-    gulp.start('htm', 'styles', 'scripts', 'images');
-});
-
-// Watch
-gulp.task('watch', function() {
-
-   // Listen on port 35729
-   server.listen(35729, function (err) {
-     if (err) {
-       return console.log(err)
-     };
-      
-      // Watch .htm files
-      gulp.watch('**/*.htm', ['htm']);
-
-      // Watch .php files
-      gulp.watch('**/*.php', ['php']);
-
-      // Watch .scss files
-      gulp.watch('assets/dev/scss/**/*.scss', ['styles']);
-
-      // Watch .js files
-      gulp.watch('assets/dev/js/**/*.js', ['scripts']);
-
-      // Watch image files
-      gulp.watch('assets/dev/images/**/*', ['images']);
-
-  });
-
-});
+        // Apply version control
+        .version(["public/css/frontend.css", "public/js/frontend.js", "public/css/backend.css", "public/js/backend.js"]);
+});*/
