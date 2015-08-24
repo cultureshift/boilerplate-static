@@ -1,0 +1,31 @@
+.contact {
+	h1 {
+		text-align: center;
+		color: $brand;
+		margin-bottom: 90px;
+	}
+	input {
+		display: inline-block;
+		height: 50px;
+		@include span-columns(12);
+		border: 2px solid $dark-gray;
+		box-shadow: none;
+		outline: none;
+		&:focus {
+			border-color: $brand;
+		}
+		&:not([type="submit"]) {
+			padding: 20px;
+		}
+		@include media($m) {
+			@include span-columns(4);
+		}
+	}
+	input[type="submit"] {
+		background-color: transparent;
+		color: $dark-gray;
+		&:hover {
+
+		}
+	}
+}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -20,18 +19,23 @@
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <header id="hero">
-           <?php require_once('nav.php');?>
+        
+        <!-- NAV -->
+        <?php require_once('partials/nav.php');?>
+        <!-- HEADER -->
+        <?php require_once('partials/header.php');?>
+        <!-- VALUES -->
+        <?php require_once('partials/values.php');?>
+        <!-- MISSION -->
+        <?php require_once('partials/mission.php');?>
+        <!-- PROJETS -->
+        <?php require_once('partials/projects.php');?>
+        <!-- CONTACT -->
+        <?php require_once('partials/contact.php');?>
+        <!-- FOOTER -->
+        <?php require_once('partials/footer.php');?>
 
-           <div class="section-white-text">
-               <h1>Boilerplate - Culture Shift</h1>
-                <p>congrats on the new client, idea or project; remember to have fun and make the web a better place.</p>
-           </div>
-       </header>
-       <section>
-           <!-- ADDITOINAL SECTIONS HERE -->
-        </section>
-        <?php require_once('footer.php');?>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
         <script src="assets/app/js/main.min.js"></script>

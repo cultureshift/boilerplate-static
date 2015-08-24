@@ -1,0 +1,36 @@
+.projects {
+	h1 {
+		color: $brand;
+		text-align: center;
+		margin-bottom: 90px;
+	}
+	.item {
+		h4 {
+			color: $dark-gray;
+		}
+		.logo {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		p {
+			color: $dark-gray;
+		}
+		@include span-columns(12);
+		text-align: center;
+		background-color: white;
+		min-height: 400px;
+		padding: 20px;
+		@include transition(1s);
+		cursor: pointer;
+		border-radius: 1px;
+		&:hover {
+			background-color: $brand;
+		}
+		@include media($m) {
+			@include span-columns(6);
+		}
+		@include media($l) {
+			@include span-columns(3);
+		}
+	}
+}

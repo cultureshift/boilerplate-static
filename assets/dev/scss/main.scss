@@ -6,21 +6,20 @@
 @import "neat/neat";
 @import "base/base";
 
-
 ///////////////////////////////////////////////////////////////////////////
 // AUTHORED DEPENDENCIES
 ///////////////////////////////////////////////////////////////////////////
-@import "typography";
-@import "colors";
 @import "nav";
-@import "backgrounds";
-@import "ui";
 @import "layouts";
-@import "video";
+@import "header";
+@import "helpers";
 
-
-
-
+//PARTIALS
+@import "partials/values";
+@import "partials/projects";
+@import "partials/mission";
+@import "partials/contact";
+@import "partials/footer";
 
 
 

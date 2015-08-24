@@ -6,35 +6,37 @@
 @include media($large-screen-up) {
 
 	nav {
-
-		padding: 1em 4em 0.3em 4em;
-		background-color: $nav-white;
-
 		img {
-			width: 11em;
+			width: 250px;
 		}
 		ul {
 			display: inline-block;
 			float: right;
 			padding-top: 0.4em;
-			
 			li {
 				display: inline-block;
 				padding-right: 1em;
 				font-size: 1.2em;
 				height: 1.2em;
-
 				a {
 					color: $nav-text;
 					font-family: $lato;
 					font-weight: 300;
-
 					&:hover {
-						color: $nav-text;
+						color: $brand;
+						padding-bottom: 5px;
+						border-bottom: 2px solid $brand;
 					}
 				}
 			}
 		}
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 18px 50px 12px 50px;
+		background-color: rgba(255,255,255,0.97);
+		border-bottom: 1px solid rgba(0,0,0,0.1);
 	}//nav
 
 	//HIDE MOBILE NAV
@@ -50,8 +52,15 @@
 
 @include media($large-screen-down) {
 	nav {
-		padding: 0.4em 1em 0.4em 1em;
-		background-color: $nav-white;
+		img {
+		}
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 18px 20px 12px 20px;
+		background-color: rgba(255,255,255,0.97);
+
 	}
 	//SHOF MOBILE NAV
 	.js-menu {
@@ -60,8 +69,7 @@
 
 	#desktop-nav {
 		img {
-			width: 12em;
-			margin-top: 0.7em;
+			width: 200px;
 		}
 		ul {
 			display: none;
@@ -71,7 +79,7 @@
 	$sliding-menu-border-color: $nav-mobile;
 	$sliding-menu-background: $nav-mobile;
 	$sliding-menu-color: #fff;
-	$sliding-menu-border: 1px solid $dark;
+	$sliding-menu-border: 1px solid $dark-gray;
 	$sliding-menu-background-hover: white;
 	$sliding-menu-color-hover: #fff;
 
@@ -96,7 +104,7 @@
 
 	    &:hover {
 	      background-color: $sliding-menu-background-hover;
-	      color: $dark;
+	      color: $dark-gray;
 	    }
 	  }
 
@@ -134,7 +142,7 @@
 	  display: inline-block;
 	  transition: all ease 0.3s;
 	  position: fixed;
-	  top: 11px;
+	  top: 10px;
 	  right: 1em;
 	  z-index: 999999;
 

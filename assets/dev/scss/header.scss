@@ -1,0 +1,39 @@
+.hero {
+	.catchline {
+		color: white;
+		padding-top: 150px;
+		max-width: 800px;
+		line-height: 50px;
+		font-family: $brand-serif;
+		font-size: 3.5em;
+		text-align: left;
+		letter-spacing: 1px;
+	}
+	p {
+		margin-top: 20px;
+		max-width: 600px;
+		color: white;
+		text-align: left;
+		font-size: 1.3em;
+		padding-bottom: 20px;
+		border-bottom: 10px solid $brand;
+	}
+	.filter {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -100;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(140,140,140,0.7);
+	}
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-attachment: fixed;
+	background-image: url('../images/hero.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: -200;
+}

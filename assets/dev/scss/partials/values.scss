@@ -1,0 +1,25 @@
+.values {
+	h1 {
+		text-align: center;
+		color: $brand;
+		padding-bottom: 90px;
+	}
+	.item {
+		img {
+			padding-bottom: 10px;
+		}
+		h3 {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		@include span-columns(12);
+		@include media($m) {
+			@include span-columns(6);
+		}
+		@include media($l) {
+			@include span-columns(3);
+		}
+		text-align: center;
+	}
+	// border-top: 40px solid $brand;
+}

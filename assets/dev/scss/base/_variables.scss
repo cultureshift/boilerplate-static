@@ -1,8 +1,16 @@
+//IMPORTS
+@import url(http://fonts.googleapis.com/css?family=Cinzel:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic);
+// BRAND FONTS VARS
+$brand-sans: 'Lato', sans-serif;
+$brand-serif: 'Cinzel', Georgia, serif;
+$lato: $brand-sans;
+
 // Typography
-$sans-serif: $helvetica;
-$serif: $georgia;
+$sans-serif: $brand-sans;
+$serif: $brand-serif;
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: $brand-serif;
 
 // Sizes
 $base-font-size: 1em;
@@ -15,10 +23,15 @@ $base-border-radius: em(3);
 $blue: #477DCA;
 $dark-gray: #333;
 $medium-gray: #999;
-$light-gray: #DDD;
+$light-gray: #f2f2f2;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+$nav-white: white;
+$nav-text: black;
+$nav-mobile: white;
+$brand: #24B0D1;
+
 
 // Background Color
 $base-background-color: white;
