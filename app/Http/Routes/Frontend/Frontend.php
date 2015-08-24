@@ -3,7 +3,7 @@
 /**
  * Frontend Controllers
  */
-Route::get('/', ['as' => 'home', 'uses' => 'FrontendController@index']);
+Route::get('backend', ['as' => 'home', 'uses' => 'FrontendController@index']);
 Route::get('macros', 'FrontendController@macros');
 
 /**

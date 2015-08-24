@@ -41,3 +41,12 @@ Route::group(['namespace' => 'Backend'], function ()
 		});
 	});
 });
+
+/**
+ * Marketing Routes
+ * Namespaces indicate folder structure
+ */
+Route::group(['namespace' => 'Marketing'], function ()
+{
+	require(__DIR__ . "/Routes/Marketing/Marketing.php");
+});
