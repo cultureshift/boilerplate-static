@@ -32,8 +32,19 @@ elixir(function(mix) {
                 'backend/main.js'
             ], 'public/js/backend.js')
 
+        .sass([ // Process marketing stylesheets
+            'marketing/main.scss',
+        ], 'resources/assets/css/marketing/main.css')
+        .styles([ // Combine pre-processed CSS files
+                'backend/main.css'
+            ], 'public/css/marketing.css')
+        .scripts([ // Combine marketing scripts
+                'plugins.js',
+                'backend/main.js'
+            ], 'public/js/marketing.js')
+
         // Apply version control
-        .version(["public/css/frontend.css", "public/js/frontend.js", "public/css/backend.css", "public/js/backend.js"]);
+        .version(["public/css/frontend.css", "public/js/frontend.js", "public/css/backend.css", "public/js/backend.js, public/css/marketing.css", "public/js/marketing.js"]);
 });
 
 /**
